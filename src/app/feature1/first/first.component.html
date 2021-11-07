@@ -1,0 +1,33 @@
+<p>Feature 1</p>
+
+<div>{{title}}</div>
+
+<h3>Timer Number Observable</h3>
+{{num}}
+
+<!-- <ng-container *ngFor="let post of posts">
+    <br>
+    <div>User ID: {{post.userId}}</div>
+    <div>ID: {{post.id}}</div>
+    <div>Title: {{post.title}}</div>
+    <div>Body: {{post.body}}</div>
+</ng-container> -->
+
+<h3>Get All Posts with Share Replay</h3>
+<button (click)="getAllPostsWithShareReplay()">Call Get All Posts API</button>
+
+<h3>Get All Posts without Share Replay</h3>
+<button (click)="getAllPosts()">Call Get All Posts API</button>
+
+<h3>Display filtered result</h3>
+<button (click)="getfilteredResult()">Call Filtered Result</button>
+
+<h3>Async Implementation</h3>
+
+<ng-container *ngFor="let post of posts | async">
+    <br>
+    <div>User ID: {{post.userId}}</div>
+    <div>ID: {{post.id}}</div>
+    <div>Title: {{post.title}}</div>
+    <div>Body: {{post.body}}</div>
+</ng-container>

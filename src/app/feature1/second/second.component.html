@@ -1,0 +1,27 @@
+<p>second works!</p>
+
+
+<h3>Custom Highlight Directive</h3>
+<p appHighlight>Highlight me!</p>
+
+<h3>Custom Ellipsis Pipe</h3>
+<p> {{freeText | ellipsis:50}} </p>
+
+
+<h3>Built in Pipes</h3>
+
+
+<div>Lowercase</div>
+<p> {{name | lowercase}}</p>
+<div>Uppercase</div>
+<p> {{name | uppercase}}</p>
+<div>Date</div>
+<p> {{ today | date: 'medium'}}</p>
+<div>Date Format</div>
+<p> {{ today | date: 'y-MM­-d'}}</p>
+<div>Currency 3.5 | currency: '€'</div>
+<p> {{ 3.5 | currency: '€'}}</p>
+<div>Percent 0.5 | percent: '1.2'</div>
+<p> {{ 0.5 | percent: '1.2'}}</p>
+<div>Number 0.5 | number: '1.2'</div>
+<p> {{ 0.5 | number: '1.2'}}</p>
