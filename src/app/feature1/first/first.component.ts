@@ -7,7 +7,7 @@ import { Injector } from "@angular/core";
 import { uniq, isEqual, isEmpty, sortBy } from 'lodash';
 import * as moment from 'moment';
 // import * as _ from 'lodash';
-import { filter, map, Observable, Subscription, timer } from 'rxjs';
+import { map, Observable, Subscription, timer } from 'rxjs';
 import { DatePipe } from '@angular/common';
 
 @Component({
@@ -21,6 +21,7 @@ export class FirstComponent implements OnInit {
   title = 'First Component';
   num = 0;
   subs!: Subscription;
+  singlePost!: any;
 
   constructor(protected commonService: CommonService,
     protected datePipe: DatePipe,
@@ -45,6 +46,14 @@ export class FirstComponent implements OnInit {
 
   getAllPostsWithShareReplay() {
     this.posts = this.commonService.getAllPostsWithShareReplay();
+  }
+
+  getAllPostsByIdWithShareReplay(id: number) {
+    this.singlePost = this.commonService.getAllPostsByIdWithShareReplay(id);
+  }
+
+  resetGetByIdCache() {
+    this.commonService.resetGetByIdCache();
   }
 
   getfilteredResult() {

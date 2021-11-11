@@ -2,8 +2,58 @@
 
 <div>{{title}}</div>
 
-<h3>Timer Number Observable</h3>
-{{num}}
+
+<div class="grid-container">
+    <div class="item1">
+        <h3>Timer Number Observable</h3>
+        {{num}}
+    </div>
+    <div class="item2">
+        <h3>Get Post by ID (1) with Share Replay</h3>
+        <button (click)="getAllPostsByIdWithShareReplay(1)">Call Get Post by ID (1) API</button>
+
+        <h3>Get Post by ID (2) with Share Replay</h3>
+        <button (click)="getAllPostsByIdWithShareReplay(2)">Call Get Post by ID (2) API</button>
+
+        <h3>Reset get by ID cache</h3>
+        <button (click)="resetGetByIdCache()">Reset get by ID cache</button>
+
+        <h3>Async Implementation Post by ID</h3>
+        <div class="postContainer">
+            <ng-container *ngFor="let item of singlePost | async | keyvalue">
+                <div>{{item.key}} : {{item.value}}</div>
+            </ng-container>
+        </div>
+
+    </div>
+    <div class="item3">
+        <h3>Get All Posts without Share Replay</h3>
+        <button (click)="getAllPosts()">Call Get All Posts API</button>
+
+        <h3>Get All Posts with Share Replay</h3>
+        <button (click)="getAllPostsWithShareReplay()">Call Get All Posts API</button>
+
+        <h3>Display filtered result</h3>
+        <button (click)="getfilteredResult()">Call Filtered Result</button>
+
+
+        <h3>Async Implementation</h3>
+
+        <div class="postContainer">
+            <ng-container *ngFor="let post of posts | async">
+                <br>
+                <div>User ID: {{post.userId}}</div>
+                <div>ID: {{post.id}}</div>
+                <div>Title: {{post.title}}</div>
+                <div>Body: {{post.body}}</div>
+            </ng-container>
+        </div>
+
+    </div>
+
+</div>
+
+
 
 <!-- <ng-container *ngFor="let post of posts">
     <br>
@@ -12,22 +62,3 @@
     <div>Title: {{post.title}}</div>
     <div>Body: {{post.body}}</div>
 </ng-container> -->
-
-<h3>Get All Posts with Share Replay</h3>
-<button (click)="getAllPostsWithShareReplay()">Call Get All Posts API</button>
-
-<h3>Get All Posts without Share Replay</h3>
-<button (click)="getAllPosts()">Call Get All Posts API</button>
-
-<h3>Display filtered result</h3>
-<button (click)="getfilteredResult()">Call Filtered Result</button>
-
-<h3>Async Implementation</h3>
-
-<ng-container *ngFor="let post of posts | async">
-    <br>
-    <div>User ID: {{post.userId}}</div>
-    <div>ID: {{post.id}}</div>
-    <div>Title: {{post.title}}</div>
-    <div>Body: {{post.body}}</div>
-</ng-container>
