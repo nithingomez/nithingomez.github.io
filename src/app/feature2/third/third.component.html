@@ -1,1 +1,11 @@
 <p>third works!</p>
+
+
+<div>
+    <input type="number" [(ngModel)]="inputNum">
+    <button (click)="fib(inputNum)">Fib Without Memoization</button>
+    <button (click)="fibMemo(inputNum)">Fib With Lodash Memoization</button>
+    <button (click)="fibCustomMemo(inputNum)">Fib With Custom Memoization</button>
+    <button (click)="complexFn(inputNum)">Complex Calc without Memoization</button>
+    <button (click)="complexFnMemo(inputNum)">Complex Calc with Memoization</button>
+</div>

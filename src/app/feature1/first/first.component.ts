@@ -7,7 +7,7 @@ import { Injector } from "@angular/core";
 import { uniq, isEqual, isEmpty, sortBy } from 'lodash';
 import * as moment from 'moment';
 // import * as _ from 'lodash';
-import { map, Observable, Subscription, timer } from 'rxjs';
+import { catchError, map, Observable, Subscription, throwError, timer } from 'rxjs';
 import { DatePipe } from '@angular/common';
 
 @Component({
@@ -41,8 +41,14 @@ export class FirstComponent implements OnInit {
     //   this.posts = data;
     // })
     // })
-    this.posts = this.commonService.getAllPosts();
+    this.posts = this.commonService.getAllPosts()
+    // .pipe(catchError((err: any) => {
+    //     alert(err.name + ' ' + err.message);
+    //     return throwError(() => err);
+    //   }));
   }
+
+
 
   getAllPostsWithShareReplay() {
     this.posts = this.commonService.getAllPostsWithShareReplay();

@@ -5,13 +5,22 @@
 
 <br>
 <div class="flex-container">
-    <div><button routerLink="/feature1/firstComp">Feature1 first Comp - share replay and async pipe - Lodash
-            Moment</button></div>
+    <div><button routerLink="/feature1/firstComp">Feature1 first Comp - share replay and async pipe - Lodash Moment
+            Lib</button></div>
     <div><button routerLink="/feature1/secondComp">Feature1 second Comp - custom directives and custom pipes</button>
     </div>
-    <div><button routerLink="/feature2/thirdComp">Feature2 third Comp - RxJS observable subjects operators</button>
+    <div><button routerLink="/feature2/thirdComp">Feature2 third Comp - Lodash Memoize and Custom Memoization</button>
     </div>
-    <div><button routerLink="/feature2/fourthComp">Feature2 fourth Comp</button></div>
+    <div><button routerLink="/feature2/fourthComp">Feature2 fourth Comp - - RxJS observable subjects operators</button>
+    </div>
 </div>
+
+<div>
+    <h3>Other featuers Developed in the Application:</h3>
+    <p>1. Lazy Loading</p>
+    <p>2. Preloading with ngx-quicklink</p>
+</div>
+
+<mat-progress-spinner [mode]="'indeterminate'" *ngIf="loading$ | async"></mat-progress-spinner>
 
 <router-outlet></router-outlet>
