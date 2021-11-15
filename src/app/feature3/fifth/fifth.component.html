@@ -1,0 +1,37 @@
+<h2>Infinite Scroll</h2>
+
+
+
+<!-- <ul infiniteScroll [infiniteScrollDistance]="0.1" (scrolled)="onScroll()">
+
+    <li *ngFor="let post of posts">
+        {{post}}
+    </li>
+
+</ul>
+<p>Loading...</p> -->
+
+
+<div *ngIf="posts" infinite-scroll [infiniteScrollDistance]="2" [infiniteScrollUpDistance]="2"
+    [infiniteScrollThrottle]="50" (scrolled)="onScrollDown()" [scrollWindow]="false"
+    style="height: 200px; width: 500px; overflow:auto">
+    <table>
+        <thead>
+            <tr>
+                <th>User ID</th>
+                <th>ID</th>
+                <th>Title</th>
+                <th>Body</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let post of posts">
+                <td>{{post.userId}}</td>
+                <td>{{post.id}}</td>
+                <td>{{post.title}}</td>
+                <td>{{post.body}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

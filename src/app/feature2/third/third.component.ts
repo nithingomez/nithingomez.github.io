@@ -12,7 +12,7 @@ export class ThirdComponent implements OnInit {
 
   inputNum = 1;
   cache: any = {};
-
+  title = 'Lodash Memoize and Custom Memoization';
 
   fibonacci = memoize((num: number): number => {
     if (num === 1 || num === 2) return 1;

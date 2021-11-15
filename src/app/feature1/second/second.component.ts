@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class SecondComponent implements OnInit {
 
   constructor() { }
-
+  title = 'Custom directives and custom pipes';
   freeText: string = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt';
   today = new Date();
   name: string = 'Nithin Gomez';

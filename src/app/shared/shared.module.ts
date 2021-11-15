@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { HighlightDirective } from './highlight.directive';
 import { EllipsisPipe } from './ellipsis.pipe';
 import { FormsModule } from '@angular/forms';
+import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 
 
 
@@ -13,8 +14,9 @@ import { FormsModule } from '@angular/forms';
   ],
   imports: [
     CommonModule,
+    InfiniteScrollModule,
     FormsModule,
   ],
-  exports: [HighlightDirective, EllipsisPipe, FormsModule]
+  exports: [HighlightDirective, EllipsisPipe, FormsModule, InfiniteScrollModule]
 })
 export class SharedModule { }

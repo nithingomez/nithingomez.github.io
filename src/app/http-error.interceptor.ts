@@ -20,11 +20,10 @@ export class HttpErrorInterceptor implements HttpInterceptor {
     return next.handle(request).pipe(
       tap((event: HttpEvent<any>) => {
         if (event instanceof HttpResponse && event.status === 201) {
-          alert('Object Created')
+          console.log('Object Created')
         } else if (event instanceof HttpErrorResponse) {
           alert('Error ' + event.message);
         } else {
-          console.log('In HTTP Interceptor: ' + JSON.stringify(event));
           this.loader.hide();
         }
       })

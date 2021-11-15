@@ -18,7 +18,7 @@ import { DatePipe } from '@angular/common';
 })
 export class FirstComponent implements OnInit {
   posts: any = [];
-  title = 'First Component';
+  title = 'Share replay and async pipe - Lodash & Moment Lib';
   num = 0;
   subs!: Subscription;
   singlePost!: any;

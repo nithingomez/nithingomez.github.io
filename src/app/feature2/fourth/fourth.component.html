@@ -1,1 +1,11 @@
-<p>fourth works!</p>
+<h2>{{title}}</h2>
+
+<button (click)="processMeetups()">Process Calculation Chained Array Operators</button>
+
+<div *ngFor="let meetup of meetups">
+    <ul>
+        <li>Name: {{meetup.name}}</li>
+        <li>isActive: {{meetup.isActive}}</li>
+        <li>members: {{meetup.members}}</li>
+    </ul>
+</div>
