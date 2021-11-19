@@ -1,7 +1,14 @@
+* {
+  box-sizing:border-box;
+  font-family: 'Lato', sans-serif;
+}
+
 .flex-container {
     display: flex;
-    flex-wrap: nowrap;
+    // flex-wrap: nowrap;
+    flex-wrap: wrap;
     column-gap: 0.875rem;
+    row-gap: 1rem;
     // background-color: DodgerBlue;
   }
   
@@ -20,4 +27,30 @@
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 5;
+}
+
+.main-header{
+  display: inline-block;
+  width: 100%;
+  background: lightgreen;
+}
+
+.main-header-name{
+  display: inline-block;
+}
+
+.main-header-links {
+  display: inline-block;
+  text-align: right;
+  width: calc(100% - 250px);
+}
+
+.main-header-link {
+  display: inline-block;
+  margin: 0px 15px;
+}
+
+.main-header-name>h2 {
+  padding: 0;
+  margin: 0;
 }

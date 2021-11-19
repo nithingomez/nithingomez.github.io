@@ -8,7 +8,8 @@ import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   { path: 'fifthComp', component: FifthComponent },
-  { path: 'sixthComp', component: SixthComponent }
+  { path: 'sixthComp', component: SixthComponent },
+  { path: 'sixthComp/:id', component: SixthComponent }
 ];
 
 @NgModule({

@@ -1,0 +1,30 @@
+<div>PARENT COMPONENT SECTION</div>
+<br>
+<button (click)="sendData()">Send Data to Child Component 1</button>
+<br>
+Message from Child Component 1 via @Output and Event Emitter: {{messageReceived}}
+<br>
+Message from Child Component 2 via @ViewChild and ngAfterViewInit: {{messageFromComponent2}}
+<br>
+<br>
+<div>CHILD COMPONENT1 SECTION</div>
+<br>
+<app-child-component [dataFromParent]="name" (dataFromChild)="getMessageFromChild($event)"></app-child-component>
+<br>
+<br>
+<div>CHILD COMPONENT2 SECTION</div>
+<br>
+<app-child-component2></app-child-component2>
+
+
+<div>DATA FROM UNRELATED COMPONENT</div>
+<br>
+
+<div *ngFor="let message of messages">
+
+  <div>message.text</div>
+
+</div>
+
+
+<br>

@@ -1,0 +1,15 @@
+<p>
+  main works!
+</p>
+
+
+<app-sub [dataFromMain]="name" (dataFromSub)="getModifiedNameFromSub($event)"></app-sub>
+<app-sub></app-sub>
+<app-sub></app-sub>
+<app-sub></app-sub>
+<app-sub></app-sub>
+
+
+
+<div>From Sub</div>
+Modified Name: {{modifiedNameFromSub}}

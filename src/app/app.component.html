@@ -1,33 +1,24 @@
-<div>
-        <h2>Angular Playground GH</h2>
+<div class="main-header">
+        <div class="main-header-name">
+                <h2>Angular Playground GH</h2>
+        </div>
+        <div class="main-header-links">
+                <!-- <div class="flex-container">
+                        <div><button mat-raised-button routerLink="/home" routerLinkActive="active">Home</button></div>
+                        <div><button mat-raised-button [routerLink]="" (click)="logout()">Log out</button></div>
+                </div> -->
+                <div class="main-header-link"><button mat-raised-button routerLink="/home"
+                                routerLinkActive="active">Home</button></div>
+                <div class="main-header-link"><button mat-raised-button [routerLink]="" (click)="logout()">Log
+                                out</button></div>
+        </div>
 </div>
-<div><button mat-raised-button routerLink="/home">Home</button></div>
+
 
 <br>
-<div class="flex-container">
-        <div><button mat-raised-button color="primary" title="Share replay and async pipe - Lodash & Moment Lib"
-                        routerLink="/feature1/firstComp">Feature1 - Component1</button></div>
-        <div><button mat-raised-button color="primary" title="Custom directives and custom pipes"
-                        routerLink="/feature1/secondComp">Feature1 - Component2</button>
-        </div>
-        <div><button mat-raised-button color="primary" title="Lodash Memoize and Custom Memoization"
-                        routerLink="/feature2/thirdComp">Feature2 - Component3</button>
-        </div>
-        <div><button mat-raised-button color="primary" title="Chained Array Operators"
-                        routerLink="/feature2/fourthComp">Feature2 - Component4</button>
-        </div>
-        <div><button mat-raised-button color="primary" title="Infinite Scroll" routerLink="/feature3/fifthComp">Feature3
-                        - Component5</button>
-        </div>
-        <div><button mat-raised-button color="primary" title="RxJS observable subjects operators"
-                        routerLink="/feature3/sixthComp">Feature3 - Component6</button>
-        </div>
-</div>
-
-
-
 <mat-progress-spinner [mode]="'indeterminate'" *ngIf="loading$ | async"></mat-progress-spinner>
 
 
-
-<router-outlet></router-outlet>
+<div>
+        <router-outlet></router-outlet>
+</div>

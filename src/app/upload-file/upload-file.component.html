@@ -1,0 +1,12 @@
+<input type="file" accept=".jpg,.jpeg.,.gif,.png,.mov,.mp4,.pdf,.doc,.ppt,.pptx,.docx" (change)="transform($event)" />
+
+
+<video #video style="display: none;" *ngIf="videoUrl" width="320" height="240" controls [attr.src]="videoUrl"
+  (loadedmetadata)="getDuration($event)">
+</video>
+
+<p *ngIf="filetype">Uploaded File Type <b>{{filetype}}</b></p>
+<p *ngIf="filetype && filetype.includes('pdf')">Number of Pages in PDF <b>{{pdfPageCount}}</b></p>
+<p *ngIf="filetype && filetype.includes('video')">Video Length <b>{{videoLength}} s </b></p>
+
+<div></div>
