@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { NinthComponent } from './ninth/ninth.component';
 import { TenthComponent } from './tenth/tenth.component';
 import { RouterModule, Routes } from '@angular/router';
+import { SharedModule } from '../shared/shared.module';
 
 const routes: Routes = [
   { path: 'ninthComp', component: NinthComponent },
@@ -16,6 +17,7 @@ const routes: Routes = [
   ],
   imports: [
     CommonModule,
+    SharedModule,
     RouterModule.forChild(routes)
   ]
 })

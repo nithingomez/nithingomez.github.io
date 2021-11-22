@@ -7,6 +7,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NinthComponent implements OnInit {
 
+  isReq = true;
+  isDis = true;
+  value = 'nithin';
+  placeholder = 'Enter Name Here';
   constructor() { }
 
   ngOnInit(): void {

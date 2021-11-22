@@ -39,6 +39,8 @@ import { ReplaySubjectComponent } from './replay-subject/replay-subject.componen
 import { SubComponent } from './sub-component/sub/sub.component';
 import { SubjectComponent } from './subject/subject.component';
 import { UploadFileComponent } from './upload-file/upload-file.component';
+import { CoreUiModule } from 'projects/core-ui/src/public-api';
+import { CommonUiModule } from 'projects/common-ui/src/public-api';
 
 
 
@@ -66,6 +68,10 @@ import { UploadFileComponent } from './upload-file/upload-file.component';
     SubComponent
   ],
   imports: [
+    CoreUiModule,
+    CommonUiModule,
+
+
     FormsModule,
     AppRoutingModule,
     BrowserModule,

@@ -3,11 +3,27 @@
   "compileOnSave": false,
   "compilerOptions": {
     "baseUrl": "./",
+    "paths": {
+      "ant-ui-test": [
+        "dist/ant-ui-test/ant-ui-test",
+        "dist/ant-ui-test"
+      ],
+      "common-ui": [
+        "dist/common-ui/common-ui",
+        "dist/common-ui"
+      ],
+      "core-ui": [
+        // "projects/core-ui/src/public_api",
+        "dist/core-ui/core-ui",
+        "dist/core-ui"
+      ]
+    },
     "outDir": "./dist/out-tsc",
     "forceConsistentCasingInFileNames": true,
     //"strict": true,
     "noImplicitOverride": true,
-    "noPropertyAccessFromIndexSignature": true,
+    "suppressImplicitAnyIndexErrors": false,
+    "noPropertyAccessFromIndexSignature": false,
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
     "sourceMap": true,

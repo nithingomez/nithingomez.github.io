@@ -1,1 +1,153 @@
-<p>seventh works!</p>
+<h3>Template Driven Forms</h3>
+
+
+<form #contactForm="ngForm" (ngSubmit)="onSubmit(contactForm)" novalidate>
+
+    <p>
+        <label for="firstname">First Name</label>
+        <input type="text" id="firstname" name="firstname" #fname="ngModel" [(ngModel)]="contact.firstname" required
+            minlength="10">
+    </p>
+
+    <div class="error" *ngIf="!fname?.valid && (fname?.dirty || fname?.touched)">
+        Invalid First Name
+        <div *ngIf="fname.errors['required']">
+            First Name is required
+        </div>
+        <div *ngIf="fname.errors['minlength']">
+            First Name Minimum Length is {{fname.errors['minlength'].requiredLength}}
+        </div>
+    </div>
+
+
+
+    <p>
+        <label for="lastname">Last Name </label>
+        <input type="text" id="lastname" name="lastname" #lastname="ngModel" [(ngModel)]="contact.lastname" required
+            maxlength="15" pattern="^[a-zA-Z]+$">
+    </p>
+
+    <div class="error" *ngIf="!lastname?.valid && (lastname?.dirty || lastname?.touched)" class="error">
+        <div *ngIf="lastname.errors.required">
+            Last Name is required
+        </div>
+        <div *ngIf="lastname.errors.maxlength">
+            Last Name Minimum Length is {{lastname.errors.maxlength?.requiredLength}}
+        </div>
+        <div *ngIf="lastname.errors.pattern">
+            Only characters are allowed
+        </div>
+    </div>
+
+    <p>
+        <label for="email">Email </label>
+        <input type="text" id="email" name="email" #email="ngModel" [(ngModel)]="contact.email" required email>
+    </p>
+
+    <div class="error" *ngIf="!email?.valid && (email?.dirty || email?.touched)" class="error">
+        <div *ngIf="email.errors.required">
+            Email is required
+        </div>
+        <div *ngIf="email.errors.email">
+            Invalid Email Address
+        </div>
+    </div>
+
+    <p>
+        <label for="gender">Geneder </label>
+        <input type="radio" value="male" id="gender" #gender="ngModel" name="gender" [(ngModel)]="contact.gender"> Male
+        <input type="radio" value="female" id="gender" #gender="ngModel" name="gender" [(ngModel)]="contact.gender">
+        Female
+
+    </p>
+
+    <div class="error" *ngIf="!gender?.valid && (gender?.dirty || gender?.touched)" class="error">
+        <div *ngIf="gender.errors.required">
+            Gender is required
+        </div>
+    </div>
+
+    <p>
+        <label for="isMarried">Married </label>
+        <input type="checkbox" id="isMarried" name="isMarried" [(ngModel)]="contact.isMarried">
+    </p>
+
+    <p>
+        <label for="country">country </label>
+        <select id="country" name="country" [(ngModel)]="contact.country">
+            <option [ngValue]="c.id" *ngFor="let c of countryList">
+                {{c.name}}
+            </option>
+        </select>
+    </p>
+
+    <div ngModelGroup="address">
+
+        <p>
+            <label for="city">City</label>
+            <input type="text" id="city" name="city" [(ngModel)]="contact.address.city">
+        </p>
+
+        <p>
+            <label for="street">Street</label>
+            <input type="text" id="street" name="street" [(ngModel)]="contact.address.street">
+        </p>
+
+        <p>
+            <label for="pincode">Pin Code</label>
+            <input type="text" id="pincode" name="pincode" [(ngModel)]="contact.address.pincode">
+        </p>
+
+        <label for="numVal">Number :</label>
+
+        <input type="text" name="numVal" ngModel #numVal="ngModel" [(ngModel)]="contact.address.numVal" gteValidator
+            gteNum="20">
+
+        <div class="error" *ngIf="!numVal.valid && (numVal.dirty ||numVal.touched)">
+            <div *ngIf="numVal.errors.gte">
+                The number should be greater than {{numVal.errors.requiredValue}}
+            </div>
+        </div>
+
+    </div>
+
+    <p>
+        <button type="button" (click)="changeCountry()">Change Country</button>
+        <button type="button" (click)="setDefaults()">Set Defaults</button>
+        <button type="button" (click)="reset(contactForm)">Reset</button>
+
+        <button type="button" (click)="patchValue()">Patch Value</button>
+        <button type="button" (click)="changeAddress()">Change Address</button>
+        <button type="button" (click)="resetForm()">Reset Form</button>
+    </p>
+
+
+    <p>
+        <button type="submit" [disabled]="!contactForm.valid">Submit</button>
+    </p>
+
+
+    <pre>Value : {{contactForm.value | json }} </pre>
+    <pre>Valid : {{contactForm.valid}} </pre>
+    <pre>Touched : {{contactForm.touched  }} </pre>
+    <pre>Submitted : {{contactForm.submitted  }} </pre>
+
+
+
+    <p>First Name NgControl Values</p>
+
+    <pre>Value    : {{fname.value}} </pre>
+    <pre>valid    : {{fname.valid}} </pre>
+    <pre>invalid  : {{fname.invalid}} </pre>
+    <pre>touched  : {{fname.touched}} </pre>
+    <pre>errors  : {{fname.errors | json}} </pre>
+
+    <p>Number NgControl Values</p>
+
+    <pre>Value    : {{numVal.value}} </pre>
+    <pre>valid    : {{numVal.valid}} </pre>
+    <pre>invalid  : {{numVal.invalid}} </pre>
+    <pre>touched  : {{numVal.touched}} </pre>
+    <pre>errors  : {{numVal.errors | json}} </pre>
+
+</form>

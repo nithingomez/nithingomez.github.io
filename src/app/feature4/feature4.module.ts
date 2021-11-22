@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { SeventhComponent } from './seventh/seventh.component';
 import { EigthComponent } from './eigth/eigth.component';
 import { RouterModule, Routes } from '@angular/router';
+import { SharedModule } from '../shared/shared.module';
+import { gteValidatorDirective } from './seventh/gte.validator';
 
 const routes: Routes = [
   { path: 'seventhComp', component: SeventhComponent },
@@ -12,10 +14,12 @@ const routes: Routes = [
 @NgModule({
   declarations: [
     SeventhComponent,
-    EigthComponent
+    EigthComponent,
+    gteValidatorDirective
   ],
   imports: [
     CommonModule,
+    SharedModule,
     RouterModule.forChild(routes),
   ]
 })

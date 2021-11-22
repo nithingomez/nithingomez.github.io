@@ -27,10 +27,16 @@
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
             "assets": [
+              {
+                "glob": "**/*",
+                "input": "./node_modules/@ant-design/icons-angular/src/inline-svg/",
+                "output": "/assets/"
+              },
               "src/favicon.ico",
               "src/assets"
             ],
             "styles": [
+              "./node_modules/ng-zorro-antd/ng-zorro-antd.min.css",
               "./node_modules/@angular/material/prebuilt-themes/purple-green.css",
               "src/styles.scss"
             ],
@@ -96,14 +102,113 @@
             "karmaConfig": "karma.conf.js",
             "inlineStyleLanguage": "scss",
             "assets": [
+              {
+                "glob": "**/*",
+                "input": "./node_modules/@ant-design/icons-angular/src/inline-svg/",
+                "output": "/assets/"
+              },
               "src/favicon.ico",
               "src/assets"
             ],
             "styles": [
+              "./node_modules/ng-zorro-antd/ng-zorro-antd.min.css",
               "./node_modules/@angular/material/prebuilt-themes/purple-green.css",
               "src/styles.scss"
             ],
             "scripts": []
+          }
+        }
+      }
+    },
+    "core-ui": {
+      "projectType": "library",
+      "root": "projects/core-ui",
+      "sourceRoot": "projects/core-ui/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/core-ui/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/core-ui/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/core-ui/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/core-ui/src/test.ts",
+            "tsConfig": "projects/core-ui/tsconfig.spec.json",
+            "karmaConfig": "projects/core-ui/karma.conf.js"
+          }
+        }
+      }
+    },
+    "common-ui": {
+      "projectType": "library",
+      "root": "projects/common-ui",
+      "sourceRoot": "projects/common-ui/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/common-ui/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/common-ui/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/common-ui/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/common-ui/src/test.ts",
+            "tsConfig": "projects/common-ui/tsconfig.spec.json",
+            "karmaConfig": "projects/common-ui/karma.conf.js"
+          }
+        }
+      }
+    },
+    "ant-ui-test": {
+      "projectType": "library",
+      "root": "projects/ant-ui-test",
+      "sourceRoot": "projects/ant-ui-test/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/ant-ui-test/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/ant-ui-test/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/ant-ui-test/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ant-ui-test/src/test.ts",
+            "tsConfig": "projects/ant-ui-test/tsconfig.spec.json",
+            "karmaConfig": "projects/ant-ui-test/karma.conf.js"
           }
         }
       }
