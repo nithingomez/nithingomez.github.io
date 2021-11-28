@@ -12,4 +12,21 @@ export class TenthComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  title: string = 'Global Error Handler in Angular';
+
+  throwError1() {
+    // @ts-ignore
+    var a = b;
+  }
+
+  throwError2() {
+    try {
+      // @ts-ignore
+      var a = b;
+    } catch (error) {
+      //here you can handle the error
+      //
+    }
+  }
+
 }

@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { APP_INITIALIZER, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
@@ -41,6 +41,20 @@ import { SubjectComponent } from './subject/subject.component';
 import { UploadFileComponent } from './upload-file/upload-file.component';
 import { CoreUiModule } from 'projects/core-ui/src/public-api';
 import { CommonUiModule } from 'projects/common-ui/src/public-api';
+import { AppInitService } from './app-init.service';
+
+
+export function initializeApp1(appInitService: AppInitService) {
+  return (): Promise<any> => {
+    return appInitService.Init();
+  }
+}
+
+export function initializeApp2(appInitService: AppInitService) {
+  return (): Promise<any> => {
+    return appInitService.Init2();
+  }
+}
 
 
 
@@ -91,7 +105,11 @@ import { CommonUiModule } from 'projects/common-ui/src/public-api';
     provide: HTTP_INTERCEPTORS,
     useClass: HttpErrorInterceptor,
     multi: true
-  }],
+  },
+    AppInitService,
+  { provide: APP_INITIALIZER, useFactory: initializeApp1, deps: [AppInitService], multi: true },
+  { provide: APP_INITIALIZER, useFactory: initializeApp2, deps: [AppInitService], multi: true }
+  ],
   bootstrap: [AppComponent]
 })
 

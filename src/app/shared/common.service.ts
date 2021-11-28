@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 
 import { Observable, throwError } from 'rxjs';
 import { catchError, retry, shareReplay, tap } from 'rxjs/operators';
@@ -28,6 +28,26 @@ export class CommonService {
     }
     return this.posts$;
   }
+
+  getAllPostsError() {
+    const url = 'https://jsonplaceholder.typicode.com/posts/xxx';
+    return this.http.get(url);
+
+    // return this.http.get(url).pipe(catchError(this.handleError));
+  }
+
+  // handleError(error) {
+  //   let errorMessage = '';
+  //   if (error.error instanceof ErrorEvent) {
+  //     // client-side error
+  //     errorMessage = `Error: ${error.error.message}`;
+  //   } else {
+  //     // server-side error
+  //     errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
+  //   }
+  //   console.log('From Service Handling ' + errorMessage);
+  //   return throwError(errorMessage);
+  // }
 
   getAllPostsByIdWithShareReplay(id: number) {
     const url = `https://jsonplaceholder.typicode.com/posts/${id}`;

@@ -41,7 +41,8 @@ const routes: Routes = [
     resolve: {
       postData: CustomResolveGuard
     },
-    canActivate: [AuthGuardService]
+    canActivate: [AuthGuardService],
+    // canLoad: [AuthGuardService]
   },
   {
     path: 'feature4',
@@ -57,6 +58,18 @@ const routes: Routes = [
   {
     path: 'feature6',
     loadChildren: () => import('./feature6/feature6.module').then(m => m.Feature6Module),
+    canActivate: [AuthGuardService]
+
+  },
+  {
+    path: 'feature7',
+    loadChildren: () => import('./feature7/feature7.module').then(m => m.Feature7Module),
+    canActivate: [AuthGuardService]
+
+  },
+  {
+    path: 'shared',
+    loadChildren: () => import('./shared/shared.module').then(m => m.SharedModule),
     canActivate: [AuthGuardService]
 
   },

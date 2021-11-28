@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from './auth.service';
 import { LoadingService } from './loading.service';
+import { environment } from '../environments/environment';
 
 @Component({
   selector: 'app-root',
@@ -14,6 +15,7 @@ export class AppComponent {
   constructor(public loader: LoadingService,
     private authService: AuthService,
     private router: Router) {
+    console.log('Current Env dynamically loaded from Environmental Variable' + environment.env)
   }
   title = 'angular-playground-gh';
 
@@ -21,5 +23,7 @@ export class AppComponent {
     this.authService.logoutUser();
     this.router.navigate(['login']);
   }
+
+
 
 }

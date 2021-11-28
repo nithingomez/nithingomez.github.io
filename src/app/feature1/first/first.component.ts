@@ -48,6 +48,10 @@ export class FirstComponent implements OnInit {
     //   }));
   }
 
+  getAllPostsError() {
+    this.posts = this.commonService.getAllPostsError();
+  }
+
 
 
   getAllPostsWithShareReplay() {

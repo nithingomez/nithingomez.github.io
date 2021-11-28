@@ -64,6 +64,14 @@
               ],
               "outputHashing": "all"
             },
+            "test": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.test.ts"
+                }
+              ]
+            },
             "development": {
               "buildOptimizer": false,
               "optimization": false,
@@ -83,6 +91,9 @@
             },
             "development": {
               "browserTarget": "angular-playground-gh:build:development"
+            },
+            "test": {
+              "browserTarget": "angular-playground-gh:build:test"
             }
           },
           "defaultConfiguration": "development"
